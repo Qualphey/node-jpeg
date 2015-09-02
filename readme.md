@@ -7,6 +7,13 @@ His blog is at http://www.catonmat.net  --  good coders code, great reuse.
 
 ------------------------------------------------------------------------------
 
+##Intallation
+```javascript
+    npm install jpeg-fresh
+```
+
+##Basics
+
 The module exports three objects: Jpeg, FixedJpegStack, DynamicJpegStack.
 
 Jpeg allows to create fixed size jpegs from RGB, BGR, RGBA or BGRA buffers.
@@ -101,25 +108,4 @@ The height `dims.height` is 220 because the 2nd jpeg is located at 210 and
 its height is 20, so it stretches to position 230, but the first jpeg starts
 at 10, so the upper 10 pixels are not necessary and height becomes 230-10= 220.
 
-
-##How to install?
-
-
-To get it compiled, you need to have libjpeg and node installed. Then just run
-```bash
-    node-waf configure build
-```
-to build the Jpeg module. It will produce a `jpeg.node` file as the module.
-
-See also http://github.com/pkrumins/node-png module that produces PNG images.
-See also http://github.com/pkrumins/node-gif module that produces GIF images.
-
-------------------------------------------------------------------------------
-
-Have fun!
-
-
-Sincerely,
-Peteris Krumins
-http://www.catonmat.net
-
+##MIT license
