@@ -108,3 +108,4 @@ The height `dims.height` is 220 because the 2nd jpeg is located at 210 and
 its height is 20, so it stretches to position 230, but the first jpeg starts
 at 10, so the upper 10 pixels are not necessary and height becomes 230-10= 220.
 
+##MIT license
