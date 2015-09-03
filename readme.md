@@ -7,12 +7,12 @@ His blog is at http://www.catonmat.net  --  good coders code, great reuse.
 
 ------------------------------------------------------------------------------
 
-#Intallation
-```javascript
+# Intallation
+```js
     npm install jpeg-fresh
 ```
 
-#Basics
+# Basics
 
 The module exports three objects: Jpeg, FixedJpegStack, DynamicJpegStack.
 
@@ -23,11 +23,11 @@ grows as you push jpegs to it).
 
 All objects provide synchronous and asynchronous interfaces.
 
-#Jpeg
+# Jpeg
 
 Jpeg object that takes 4 arguments in its constructor:
 
-```javascript
+```js
     var Jpeg = require('jpeg-fresh').Jpeg;
     var jpeg = new Jpeg(buffer, width, height, [buffer_type]);
 ```
@@ -40,11 +40,11 @@ The fourth argument is buffer type, either 'rgb' or 'rgba'. [Optional].
 
 After you have constructed the object, call .encode() or .encodeSync to produce
 a jpeg:
-```javascript
+```js
     var jpeg_image = jpeg.encodeSync(); // synchronous encoding (blocks node.js)
 ```
 Or:
-```javascript
+```js
     jpeg.encode(function (image, error) {
         // jpeg image is in 'image'
     });
@@ -52,14 +52,14 @@ Or:
 See `examples/` directory for examples.
 
 
-#FixedJpegStack
+# FixedJpegStack
 
 First you create a FixedJpegStack object of fixed width and height:
-```javascript
+```js
     var stack = new FixedJpegStack(width, height, [buffer_type]);
 ```
 Then you can push individual fragments to it, for example,
-```javascript
+```js
     stack.push(buf1, 10, 11, 100, 200); // pushes buf1 to (x,y)=(10,11)
                                         // 100 and 200 are width and height.
 
@@ -70,29 +70,29 @@ After you're done, call `.encode()` to produce final jpeg asynchronously or
 width x height.
 
 
-#DynamicJpegStack
+# DynamicJpegStack
 
 DynamicJpegStack is the same as FixedJpegStack except its canvas grows dynamically.
 
 First, create the stack:
-```javascript
+```js
     var stack = new DynamicJpegStack([buffer_type]);
 ```
 Next push the RGB(A) buffers to it:
-```javascript
+```js
     stack.push(buf1, 5, 10, 100, 40);
     stack.push(buf2, 2, 210, 20, 20);
 ```
 Now you can call `encode` to produce the final jpeg:
-```javascript
+```js
     var jpeg = stack.encodeSync();
 ```
 Now let's see what the dimensions are,
-```javascript
+```js
     var dims = stack.dimensions();
 ```
 Same asynchronously:
-```javascript
+```js
     stack.encode(function (jpeg, dims) {
         // jpeg is the image
         // dims are its dimensions
@@ -109,4 +109,4 @@ The height `dims.height` is 220 because the 2nd jpeg is located at 210 and
 its height is 20, so it stretches to position 230, but the first jpeg starts
 at 10, so the upper 10 pixels are not necessary and height becomes 230-10= 220.
 
-#MIT license
+# MIT license
