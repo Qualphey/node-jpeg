@@ -7,12 +7,12 @@ His blog is at http://www.catonmat.net  --  good coders code, great reuse.
 
 ------------------------------------------------------------------------------
 
-# Intallation
+## Intallation
 ```js
     npm install jpeg-fresh
 ```
 
-# Basics
+## Basics
 
 The module exports three objects: Jpeg, FixedJpegStack, DynamicJpegStack.
 
@@ -23,7 +23,7 @@ grows as you push jpegs to it).
 
 All objects provide synchronous and asynchronous interfaces.
 
-# Jpeg
+## Jpeg
 
 Jpeg object that takes 4 arguments in its constructor:
 
@@ -52,7 +52,7 @@ Or:
 See `examples/` directory for examples.
 
 
-# FixedJpegStack
+## FixedJpegStack
 
 First you create a FixedJpegStack object of fixed width and height:
 ```js
@@ -70,7 +70,7 @@ After you're done, call `.encode()` to produce final jpeg asynchronously or
 width x height.
 
 
-# DynamicJpegStack
+## DynamicJpegStack
 
 DynamicJpegStack is the same as FixedJpegStack except its canvas grows dynamically.
 
@@ -109,4 +109,4 @@ The height `dims.height` is 220 because the 2nd jpeg is located at 210 and
 its height is 20, so it stretches to position 230, but the first jpeg starts
 at 10, so the upper 10 pixels are not necessary and height becomes 230-10= 220.
 
-# MIT license
+## MIT license
