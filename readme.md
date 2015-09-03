@@ -8,7 +8,7 @@ His blog is at http://www.catonmat.net  --  good coders code, great reuse.
 ------------------------------------------------------------------------------
 
 ## Intallation
-```js
+```javascript
     npm install jpeg-fresh
 ```
 
@@ -27,7 +27,7 @@ All objects provide synchronous and asynchronous interfaces.
 
 Jpeg object that takes 4 arguments in its constructor:
 
-```js
+```javascript
     var Jpeg = require('jpeg-fresh').Jpeg;
     var jpeg = new Jpeg(buffer, width, height, [buffer_type]);
 ```
@@ -40,11 +40,11 @@ The fourth argument is buffer type, either 'rgb' or 'rgba'. [Optional].
 
 After you have constructed the object, call .encode() or .encodeSync to produce
 a jpeg:
-```js
+```javascript
     var jpeg_image = jpeg.encodeSync(); // synchronous encoding (blocks node.js)
 ```
 Or:
-```js
+```javascript
     jpeg.encode(function (image, error) {
         // jpeg image is in 'image'
     });
@@ -55,11 +55,11 @@ See `examples/` directory for examples.
 ## FixedJpegStack
 
 First you create a FixedJpegStack object of fixed width and height:
-```js
+```javascript
     var stack = new FixedJpegStack(width, height, [buffer_type]);
 ```
 Then you can push individual fragments to it, for example,
-```js
+```javascript
     stack.push(buf1, 10, 11, 100, 200); // pushes buf1 to (x,y)=(10,11)
                                         // 100 and 200 are width and height.
 
@@ -75,24 +75,24 @@ width x height.
 DynamicJpegStack is the same as FixedJpegStack except its canvas grows dynamically.
 
 First, create the stack:
-```js
+```javascript
     var stack = new DynamicJpegStack([buffer_type]);
 ```
 Next push the RGB(A) buffers to it:
-```js
+```javascript
     stack.push(buf1, 5, 10, 100, 40);
     stack.push(buf2, 2, 210, 20, 20);
 ```
 Now you can call `encode` to produce the final jpeg:
-```js
+```javascript
     var jpeg = stack.encodeSync();
 ```
 Now let's see what the dimensions are,
-```js
+```javascript
     var dims = stack.dimensions();
 ```
 Same asynchronously:
-```js
+```javascript
     stack.encode(function (jpeg, dims) {
         // jpeg is the image
         // dims are its dimensions

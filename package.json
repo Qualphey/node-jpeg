@@ -1,6 +1,6 @@
 {
   "name": "jpeg-fresh",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "main": "bindings/jpeg",
   "description": "A C++ module for node-js that converts RGB and RGBA buffers to a JPEG images (in memory).",
   "keywords": [
